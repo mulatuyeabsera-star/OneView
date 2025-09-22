@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>My Web App</title>
+
+  <!-- Full-screen and safe area support -->
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden; /* Prevent outer scroll */
+    }
+
+    /* Make iframe fill viewport */
+    iframe {
+      display: block;
+      border: none;
+      width: 100vw;
+      height: 100vh;
+      min-height: 100%;
+    }
+
+    /* Optional: background color while iframe loads */
+    body {
+      background-color: #f8f9fa;
+    }
+  </style>
+</head>
+<body>
+  <!-- Replace URL below with your Apps Script web app URL -->
+  <iframe src="https://script.google.com/macros/s/AKfycbzPif5o6qO6-tx50-NUEFqs75HXTi3qbu_-4Fzu3pY864zyycJenpxD4eCzrSDV4Q_x_g/exec" id="appFrame"></iframe>
+
+  <!-- Optional: ensure iframe always resizes with viewport changes -->
+  <script>
+    function resizeIframe() {
+      const iframe = document.getElementById('appFrame');
+      iframe.style.height = window.innerHeight + 'px';
+      iframe.style.width = window.innerWidth + 'px';
+    }
+
+    window.addEventListener('resize', resizeIframe);
+    window.addEventListener('orientationchange', resizeIframe);
+
+    // Initial sizing
+    resizeIframe();
+  </script>
+</body>
+</html>
+
